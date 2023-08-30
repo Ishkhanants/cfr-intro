@@ -8,7 +8,7 @@ public class RPSTrainer {
     double[] regretSum = new double[NUM_ACTIONS],
              strategy = new double[NUM_ACTIONS],
              strategySum = new double[NUM_ACTIONS],
-             oppStrategy = {0.4, 0.3, 0.3};
+             oppStrategy = {0.4, 0.3, 0.3}; //fixed opponent strategy
 
     //Get current mixed strategy through regret-matching
     private double[] getStrategy() {
@@ -24,7 +24,8 @@ public class RPSTrainer {
                 strategy[a] /= normalizingSum;
             else
                 strategy[a] = 1.0 / NUM_ACTIONS;
-                strategySum[a] += strategy[a];
+            
+            strategySum[a] += strategy[a];
         }
 
         return strategy;
@@ -50,7 +51,7 @@ public class RPSTrainer {
 
     //Train
     public void train(int iterations) {
-        double[] actionUtility = new double[NUM_ACTIONS];
+        double[] actionUtility = new double[NUM_ACTIONS]; 
 
         for (int i = 0; i < iterations; i++) {
             //Get regret-matched mixed-strategy actions

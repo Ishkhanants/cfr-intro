@@ -124,7 +124,7 @@ public class KuhnTrainer {
             nodeUtil += strategy[a] * util[a];
         }
 
-        //For each action, compute and accumulate counterfactual regreti
+        //For each action, compute and accumulate counterfactual regret
         for (int a = 0; a < NUM_ACTIONS; a++) {
             double regret = util[a] - nodeUtil;
             node.regretSum[a] += (player == 0 ? p1 : p0) * regret;
